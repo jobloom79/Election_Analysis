@@ -25,6 +25,7 @@
 #   print(election_data)
 
 import os
+from tkinter import N
 #file_to_load = os.path.join ("Resources","election_results.csv")
 #with open(file_to_load) as election_data:
     #print(election_data)
@@ -46,5 +47,8 @@ file_to_save = os.path.join("analysis","election_analysis.txt")
 #use the with statement and open the file as a text file.
 with open(file_to_save, "w") as txt_file:
     #write some data to the file.
-    txt_file.write("Hello again")
+    #txt_file.write("Hello again")
+    txt_file.write("Counties in the Election")
+    txt_file.write("\n---------------------------")
+    txt_file.write("\nArapahoe\nDenver\nJefferson")
     
