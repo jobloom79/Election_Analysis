@@ -93,9 +93,23 @@ with open(file_to_load) as election_data:
             candidate_votes[candidate_name] = 0
         #Add a vote to that candidates count.
         candidate_votes[candidate_name] +=1
+#3.5.4.1. iterate through candidate list
+for candidate_name in candidate_votes:
+    #3.5.4.2. iterate through candidate votes
+    votes = candidate_votes[candidate_name]
+    #3.5.4.3. calculate percentage of the vote count
+    vote_percentage = float(votes) / float(total_votes) * 100
+    #3.5.4..4. print each and candidate and the percentage of votes
+    #using f-string    
+    print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.")
+
+
+
+
+
             
 #print the candidate list.
-print(candidate_votes)
+#print(candidate_votes)
     
 #file_to_test = os.path.join("analysis","election_test.txt")
 #with open(file_to_test, "w") as txt_file:
