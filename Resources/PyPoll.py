@@ -62,7 +62,6 @@ with open(file_to_load) as election_data:
     #Print each row in the csv file
     #for row in file_reader:
         #print(row)
-    headers = next(file_reader)
-    print(headers)
+    
 
     
