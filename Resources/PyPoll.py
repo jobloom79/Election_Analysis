@@ -13,8 +13,11 @@
 #print("The time right now is ", now)
 
 #Add our Dependencies
+from ast import NotIn
 import csv
+from operator import is_not
 import os
+from unicodedata import is_normalized
 #dir(csv)
 #import numbers
 
@@ -60,8 +63,13 @@ file_to_save = os.path.join("analysis","election_analysis.txt")
 total_votes = 0
 
 #Open the election results and read the file
-with open(file_to_load) as election_data:
-    
+#with open(file_to_load) as election_data:
+
+#3.5.2_1. Declare a new list candidate options by adding it before
+    #open statement
+candidate_options = []
+
+with open(file_to_load) as election_data:    
     #Read the file object with the reader function
     file_reader = csv.reader(election_data)
     
@@ -72,9 +80,17 @@ with open(file_to_load) as election_data:
     for row in file_reader:
         #Increment total votes by 1 after for loop
         total_votes += 1
-        #print out total votes
-print(total_votes)
+        #2. Print the candidates name from each list we iterate
+        candidate_name = row[2]
+        if candidate_name not in candidate_options:
+            #3. Add the candidate name to candidate options using the 
+            #append() method
+            candidate_options.append(candidate_name)
+#print the candidate list.
+print(candidate_options)
     
 #file_to_test = os.path.join("analysis","election_test.txt")
 #with open(file_to_test, "w") as txt_file:
     #txt_file.write("Hello for the 3rd time")
+
+    
