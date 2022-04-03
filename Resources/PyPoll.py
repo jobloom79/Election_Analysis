@@ -83,13 +83,16 @@ with open(file_to_load) as election_data:
         candidate_name = row[2]
         #3.5.2.3. Increment total votes by 1 after for loop
         total_votes += 1
-
+                  
         if candidate_name not in candidate_options:
             #3.5.2.4. Add the candidate name to candidate options using the 
             #append() method
+            
             candidate_options.append(candidate_name)
             #3.5.3. Begin trackign that candidates vote count.
             candidate_votes[candidate_name] = 0
+        #Add a vote to that candidates count.
+        candidate_votes[candidate_name] +=1
             
 #print the candidate list.
 print(candidate_votes)
