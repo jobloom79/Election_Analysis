@@ -69,6 +69,10 @@ total_votes = 0
 candidate_options = []
 #3.5.3.1. Declare a new dictionary.
 candidate_votes = {}
+#3.5.5.1 Declare winning variables
+winning_candidate = ""
+winning_count = 0
+winning_percentage = 0
 
 with open(file_to_load) as election_data:    
     #Read the file object with the reader function
@@ -97,18 +101,26 @@ with open(file_to_load) as election_data:
 for candidate_name in candidate_votes:
     #3.5.4.2. iterate through candidate votes
     votes = candidate_votes[candidate_name]
+    #3.5.5.1 check if the first vote is greater than zero
     #3.5.4.3. calculate percentage of the vote count
     vote_percentage = float(votes) / float(total_votes) * 100
+
+    if votes > (winning_count) and (vote_percentage > winning_percentage):
+            winning_count = votes
+            winning_percentage = vote_percentage
+            winning_candidate = candidate_name
     #3.5.4..4. print each and candidate and the percentage of votes
     #using f-string    
-    print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.")
+    print(f"{winning_candidate}: {vote_percentage:.1f}% ({votes:,})\n")
 
-
-
-
-
-            
-#print the candidate list.
+winning_candidate_summary = (
+    f"---------------------------------\n"
+    f"Winner: {winning_candidate}\n"
+    f"Winning Vote Count: {winning_count:,}\n"
+    f"Winning Percentage: {winning_percentage:.1f}%\n"
+    f"---------------------------------\n"
+)
+print(winning_candidate_summary)
 #print(candidate_votes)
     
 #file_to_test = os.path.join("analysis","election_test.txt")
