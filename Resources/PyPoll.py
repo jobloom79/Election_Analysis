@@ -65,9 +65,10 @@ total_votes = 0
 #Open the election results and read the file
 #with open(file_to_load) as election_data:
 
-#3.5.2_1. Declare a new list candidate options by adding it before
-    #open statement
+#3.5.2.1. Declare a new list candidate options 
 candidate_options = []
+#3.5.3.1. Declare a new dictionary.
+candidate_votes = {}
 
 with open(file_to_load) as election_data:    
     #Read the file object with the reader function
@@ -78,16 +79,20 @@ with open(file_to_load) as election_data:
     
     #Print each row in the csv file
     for row in file_reader:
-        #Increment total votes by 1 after for loop
-        total_votes += 1
-        #2. Print the candidates name from each list we iterate
+        #3.5.2.2. Print the candidates name from each list we iterate
         candidate_name = row[2]
+        #3.5.2.3. Increment total votes by 1 after for loop
+        total_votes += 1
+
         if candidate_name not in candidate_options:
-            #3. Add the candidate name to candidate options using the 
+            #3.5.2.4. Add the candidate name to candidate options using the 
             #append() method
             candidate_options.append(candidate_name)
+            #3.5.3. Begin trackign that candidates vote count.
+            candidate_votes[candidate_name] = 0
+            
 #print the candidate list.
-print(candidate_options)
+print(candidate_votes)
     
 #file_to_test = os.path.join("analysis","election_test.txt")
 #with open(file_to_test, "w") as txt_file:
