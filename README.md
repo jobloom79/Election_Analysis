@@ -41,6 +41,6 @@ The analysis of the election shows that:
     - Denver at 82.78
 ## Election-Audit Summary
 Using the date model to calcluate the total votes, candidates, and the most votes per candidate a winner was determined using accurate analysis and a sizeable input to achieve a satisfactory result to the tenth of a percentage.
---- In addition county data was pulled to determine voter turnout and the results was written to the file ![Election Analysis](https://github.com/jobloom79/Election_Analysis/election_analysis.htm)
+--- In addition county data was pulled to determine voter turnout and the results was written to the file 'Election Analysis'
 --- A modification can be done to use the code with other any election's data. An example is using data for presidential election where the candidate input can be added and any other columns needed like city or state can be 'variables' declared in the code and iterated through a 'for loop', 'printed' and 'written' to a text file as needed.
 
