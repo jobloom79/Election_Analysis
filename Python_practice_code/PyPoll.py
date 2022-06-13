@@ -33,6 +33,15 @@ with open (file_to_load) as election_data:
         candidate_votes[candidate_name] += 1
 
 with open (file_to_save, "w") as txt_file:
+
+    election_results = (
+    f"\nElection Results\n"
+    f"--------------------------\n"
+    f"Total Votes: {total_votes:,}\n"
+    f"--------------------------\n"
+    )
+    print(election_results, end="")
+    txt_file.write(election_results)
         
     for candidate_name in candidate_votes:
         #retrieve vote count and percentage.
@@ -46,19 +55,26 @@ with open (file_to_save, "w") as txt_file:
             winning_candidate = candidate_name
 
         # print(f"{candidate_name}: {votes_percentage:.1f}% ({votes:,})\n")
-
-    winning_candidate_summary = (
+    
+        winning_candidate_summary = (
         f"--------------------------\n"
         f"Winner: {winning_candidate}\n"
         f"Winning Vote Count: {winning_count:,}\n"
         f"Winning Percentage: {winning_percentage:.1f}\n"
         f"--------------------------\n"
-    )
-    election_results = (
-        f"\nElection Results\n"
-        f"--------------------------\n"
-        f"Total Votes: {total_votes:,}\n"
-        f"--------------------------\n"
         )
-    print(election_results, end="")
-    txt_file.write(election_results)
+        
+        candidate_results = (f"{candidate_name}: {votes_percentage:.1f}% ({votes:,})\n")
+        print(candidate_results)
+        txt_file.write(candidate_results)
+        
+    txt_file.write(winning_candidate_summary)
+
+
+ 
+
+        
+
+        
+
+
