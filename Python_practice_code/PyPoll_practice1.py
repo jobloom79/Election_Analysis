@@ -35,4 +35,31 @@ with open(file_to_save, "w") as txt_file:
     # The winner of the election based on popular vote
 #Close the file
 # election_data.close()
+# Assign a variable for the file to load and the path............
+file_to_load = os.path.join("Resources","election_results.csv")
+#Assign a variable to save the file to a path.
+file_to_save = os.path.join("analysis", "election_analysis.txt")
+#initialize vote counter
+total_votes = 0
+
+# using the with statement open the file as a text file.
+with open (file_to_load) as election_data:
+    # Read the file object with the reader function.
+    file_reader = csv.reader(election_data)
+    #Print each row in the csv file.
+    headers = next(file_reader)
+    for row in file_reader:
+        # the long way to add a couter is number = number + 1
+        total_votes += 1
+print(f"{total_votes:,}")
+
+# To do: perform analysis
+
+    # Total number of votes cast
+    # A complete list of candidates who received votes
+    # Total number of votes each candidate received
+    # Percentage of votes each candidate won
+    # The winner of the election based on popular vote
+#Close the file
+# election_data.close()
 
